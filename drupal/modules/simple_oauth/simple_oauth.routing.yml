@@ -1,0 +1,119 @@
+
+# AccessToken routing definition
+entity.access_token.canonical:
+  path: '/admin/content/access_token/{access_token}'
+  defaults:
+    _entity_view: 'access_token'
+    _title: 'Access Token'
+  requirements:
+    _entity_access: 'access_token.view'
+  options:
+    _admin_route: TRUE
+
+entity.access_token.collection:
+  path: '/admin/content/access_token'
+  defaults:
+    _entity_list: 'access_token'
+    _title: 'Access Token list'
+  requirements:
+    _permission: 'administer access token entities'
+  options:
+    _admin_route: TRUE
+  base_route: system.admin_content
+
+entity.access_token.add_form:
+  path: '/admin/content/access_token/add'
+  defaults:
+    _entity_form: access_token.add
+    _title: 'Add Access Token'
+  requirements:
+    _permission: 'add access token entities'
+  options:
+    _admin_route: TRUE
+
+entity.access_token.edit_form:
+  path: '/admin/content/access_token/{access_token}/edit'
+  defaults:
+    _entity_form: access_token.edit
+    _title: 'Edit Access Token'
+  requirements:
+    _entity_access: 'access_token.edit'
+  options:
+    _admin_route: TRUE
+
+entity.access_token.delete_form:
+  path: '/admin/content/access_token/{access_token}/delete'
+  defaults:
+    _entity_form: access_token.delete
+    _title: 'Delete Access Token'
+  requirements:
+    _entity_access: 'access_token.delete'
+  options:
+    _admin_route: TRUE
+
+access_token.settings:
+  path: '/admin/config/people/access_token'
+  defaults:
+   _form: '\Drupal\simple_oauth\Entity\Form\AccessTokenSettingsForm'
+   _title: 'Token Auth Settings'
+  requirements:
+    _permission: 'administer access token entities'
+  options:
+    _admin_route: TRUE
+  base_route: entity.user.admin_form
+
+# AccessTokenResource routing definition
+entity.access_token_resource.collection:
+  path: '/admin/config/people/access_token/access_token_resource'
+  defaults:
+    _entity_list: 'access_token_resource'
+    _title: 'Access Token Resource'
+  requirements:
+    _permission: 'administer access token entities'
+  options:
+    _admin_route: TRUE
+
+entity.access_token_resource.add_form:
+  path: '/admin/config/people/access_token/access_token_resource/add'
+  defaults:
+    _entity_form: 'access_token_resource.add'
+    _title: 'Add Access Token Resource'
+  requirements:
+    _permission: 'administer access token entities'
+  options:
+    _admin_route: TRUE
+
+entity.access_token_resource.edit_form:
+  path: '/admin/config/people/access_token/access_token_resource/{access_token_resource}'
+  defaults:
+    _entity_form: 'access_token_resource.edit'
+    _title: 'Edit Access Token Resource'
+  requirements:
+    _permission: 'administer access token entities'
+  options:
+    _admin_route: TRUE
+
+entity.access_token_resource.delete_form:
+  path: '/admin/config/people/access_token/access_token_resource/{access_token_resource}/delete'
+  defaults:
+    _entity_form: 'access_token_resource.delete'
+    _title: 'Delete Access Token Resource'
+  requirements:
+    _permission: 'administer access token entities'
+  options:
+    _admin_route: TRUE
+
+user.access_token.collection:
+  path: '/user/{user}/oauth2-tokens'
+  defaults:
+    _controller: 'Drupal\simple_oauth\Controller\AccessTokenUserList::tokenList'
+    _title: 'OAuth2 Tokens'
+  requirements:
+    _permission: 'view own access token entities'
+
+access_token.refresh:
+  path: '/simple-oauth/refresh'
+  defaults:
+    _controller: 'Drupal\simple_oauth\Controller\AccessTokenRefresh::refresh'
+  requirements:
+    _permission: 'refresh access token'

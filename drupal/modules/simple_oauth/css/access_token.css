@@ -1,0 +1,24 @@
+.access_token {
+    clear: both;
+}
+.access_token .dropbutton-wrapper.dropbutton-multiple .dropbutton-widget {
+    width: 20%;
+    max-width: 150px;
+    min-width: 80px;
+    float: right;
+}
+#access-token-resource-add-form #edit-permissions .form-item {
+    width: 33.33%;
+    min-width: 300px;
+    float: left;
+}
+#access-token-resource-add-form #edit-permissions--wrapper--description {
+    clear: both;
+}
+
+article.access_token {
+    padding: 3px;
+}
+article.access_token--refresh {
+    background: rgba(0,0,0,0.05);
+}

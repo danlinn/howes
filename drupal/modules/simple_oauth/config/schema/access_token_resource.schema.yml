@@ -1,0 +1,32 @@
+simple_oauth.access_token_resource.*:
+  type: config_entity
+  label: 'Access Token Resource config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    description:
+      type: text
+      label: 'Description'
+    locked:
+      type: boolean
+      label: 'Locked'
+    permissions:
+      type: sequence
+      label: 'Permissions'
+      sequence:
+          type: string
+    uuid:
+      type: string
+
+simple_oauth.settings:
+  type: mapping
+  label: 'Token Auth Settings'
+  mapping:
+    expiration:
+      type: integer
+      label: 'Expiration Time'
+      description: 'The default period in seconds while a token is valid'
